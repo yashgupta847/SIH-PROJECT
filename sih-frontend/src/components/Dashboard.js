@@ -42,13 +42,13 @@ export default function Dashboard() {
       padding: "20px",
       background: "linear-gradient(135deg, #6a0dad, #000000, #333333)",
       color: "white",
-      fontFamily: "Arial, sans-serif"
+      fontFamily: "Arial, sans-serif",
     },
     header: {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      marginBottom: "30px"
+      marginBottom: "30px",
     },
     button: {
       backgroundColor: "#ff3b3b",
@@ -57,22 +57,43 @@ export default function Dashboard() {
       borderRadius: "8px",
       color: "white",
       fontWeight: "bold",
-      cursor: "pointer"
+      cursor: "pointer",
+      marginLeft: "10px",
     },
     section: { marginBottom: "30px" },
     card: {
       backgroundColor: "#222222",
       padding: "15px",
       borderRadius: "10px",
-      marginBottom: "10px"
-    }
+      marginBottom: "10px",
+    },
+    mapButton: {
+      backgroundColor: "#00bfff",
+      border: "none",
+      padding: "10px 20px",
+      borderRadius: "8px",
+      color: "white",
+      fontWeight: "bold",
+      cursor: "pointer",
+      marginTop: "10px",
+    },
   };
 
   return (
     <div style={styles.container}>
       <header style={styles.header}>
         <h1 style={{ fontSize: "28px" }}>Tourist Dashboard</h1>
-        <button style={styles.button} onClick={handleLogout}>Logout</button>
+        <div>
+          <button style={styles.button} onClick={handleLogout}>
+            Logout
+          </button>
+          <button
+            style={styles.mapButton}
+            onClick={() => (window.location.href = "/maps")}
+          >
+            View Map
+          </button>
+        </div>
       </header>
 
       <section style={styles.section}>
@@ -81,14 +102,23 @@ export default function Dashboard() {
       </section>
 
       <section>
-        <h2 style={{ fontSize: "22px", marginBottom: "10px" }}>Your SOS History</h2>
+        <h2 style={{ fontSize: "22px", marginBottom: "10px" }}>
+          Your SOS History
+        </h2>
         <ul>
           {incidents.length === 0 && <li>No incidents reported yet.</li>}
           {incidents.map((inc) => (
             <li key={inc._id} style={styles.card}>
-              <p><strong>Description:</strong> {inc.description}</p>
-              <p><strong>Status:</strong> {inc.status}</p>
-              <p><strong>Time:</strong> {new Date(inc.createdAt).toLocaleString()}</p>
+              <p>
+                <strong>Description:</strong> {inc.description}
+              </p>
+              <p>
+                <strong>Status:</strong> {inc.status}
+              </p>
+              <p>
+                <strong>Time:</strong>{" "}
+                {new Date(inc.createdAt).toLocaleString()}
+              </p>
             </li>
           ))}
         </ul>
