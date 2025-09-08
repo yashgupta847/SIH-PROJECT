@@ -18,9 +18,25 @@
     <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
+    <div id="notification" class="notification hidden"></div>
+
     <header>
       <h1>Live Map</h1>
     </header>
+    <!-- Info Button -->
+    <div id="infoBtn">ℹ️</div>
+
+    <!-- Info Box -->
+    <div id="infoBox" class="hidden">
+      <h3>Map Tips</h3>
+      <ul>
+        <li>📍 If the map is blank, enable your location.</li>
+        <li>⚡ Refresh the page if markers are not showing.</li>
+        <li>🗺️ Click on any place to see route and details.</li>
+        <li>🔔 Stay connected for real-time updates.</li>
+      </ul>
+      <button id="closeInfo">Close</button>
+    </div>
 
     <main>
       <!-- 🔍 Search Section -->
@@ -49,9 +65,7 @@
 
       <section class="future-section">
         <h2>Future Features</h2>
-        <p>
-          Future Part
-        </p>
+        <p>Future Part</p>
       </section>
     </main>
 
